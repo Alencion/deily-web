@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Jua&family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Nanum Gothic', 'Jua', 'Itim', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +18,39 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html {
+  background-color: #EDEDED;
+}
+
+button {
+  border: none;
+
+  outline: none;
+  background: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.scroll { overflow-y: overlay; }
+
+.scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 0;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 0%, 42%, 0.49);
+  border-radius: 100px;
 }
