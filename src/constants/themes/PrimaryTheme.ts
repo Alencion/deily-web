@@ -1,4 +1,4 @@
-import { createTheme, Theme, PrimaryColor } from '.'
+import { createTheme, Theme, PrimaryColor, SecondaryColor } from '.'
 
 const primaryColor: PrimaryColor = {
   background: '#DFF1FF',
@@ -8,4 +8,8 @@ const primaryColor: PrimaryColor = {
   dark: '#505A7D'
 }
 
-export const PrimaryTheme: Theme = createTheme(primaryColor)
+const secondary: SecondaryColor = {
+  default: '#FF4185'
+}
+
+export const PrimaryTheme: Theme = createTheme(primaryColor, secondary)

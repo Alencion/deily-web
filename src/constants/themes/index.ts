@@ -2,14 +2,15 @@ export interface Theme {
   colors: Color
   fontSizes: FontSize
   fontFamilies: FontFamily
-  font: ({ size, family, style, weight, color }: FontProps) => string
+  font: ({ size, family, style, weight, color, lineHeight }: FontProps) => string
 }
 
-export function createTheme (primary: PrimaryColor): Theme {
+export function createTheme (primary: PrimaryColor, secondary: SecondaryColor): Theme {
   return {
     colors: {
       ...defaultColor,
-      primary
+      primary,
+      secondary
     },
     fontSizes: defaultFontSize,
     fontFamilies: defaultFontFamily,
@@ -17,13 +18,14 @@ export function createTheme (primary: PrimaryColor): Theme {
   }
 }
 
-const fontBuilder = ({ size, family = '\'NanumGothic\', \'Jua\'', style = 'normal', weight = '400', color = defaultColor.black.light }: FontProps): string => {
+const fontBuilder = ({ size, family = '\'Gowun Dodum\', \'NanumGothic\'', style = 'normal', weight = '400', color = defaultColor.black.light, lineHeight = size }: FontProps): string => {
   return `
     color: ${color};
     font-family: ${family};
     font-style: ${style};
     font-weight: ${weight};
     font-size: ${size};
+    ligth-height: ${lineHeight};
   `
 }
 
@@ -33,6 +35,7 @@ interface FontProps {
   family?: string
   weight?: string
   color?: string
+  lineHeight?: string
 }
 
 interface FontSize {
@@ -60,19 +63,20 @@ const defaultFontSize: FontSize = {
 }
 
 interface FontFamily {
-  Jua: '\'Jua\''
+  GowunDodum: '\'Gowun Dodum\''
   NanumGothic: '\'Nanum Gothic\''
   Itim: '\'Itim\''
 }
 
 const defaultFontFamily: FontFamily = {
-  Jua: '\'Jua\'',
+  GowunDodum: '\'Gowun Dodum\'',
   NanumGothic: '\'Nanum Gothic\'',
   Itim: '\'Itim\''
 }
 
 interface Color {
   primary: PrimaryColor
+  secondary: SecondaryColor
   white: string
   grey: string
   red: {
@@ -103,6 +107,10 @@ export interface PrimaryColor {
   light: string
   default: string
   dark: string
+}
+
+export interface SecondaryColor {
+  default: string
 }
 
 const defaultColor = {
