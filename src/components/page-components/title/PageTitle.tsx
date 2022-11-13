@@ -18,6 +18,7 @@ export default function PageTitle ({ isOwner, createInitBlock }: Props): JSX.Ele
   }
 
   const keyDown: React.KeyboardEventHandler<HTMLInputElement> = (e): void => {
+    if (e.nativeEvent.isComposing) return
     if (e.key === 'Enter') createInitBlock()
   }
 
